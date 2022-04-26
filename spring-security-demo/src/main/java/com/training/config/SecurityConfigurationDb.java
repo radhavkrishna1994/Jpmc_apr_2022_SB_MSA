@@ -6,23 +6,16 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-//@Configuration
-//@EnableWebSecurity
-public class SecurityConfigurationInMemory extends WebSecurityConfigurerAdapter  {
+@Configuration
+@EnableWebSecurity
+public class SecurityConfigurationDb extends WebSecurityConfigurerAdapter  {
 	
 	//authentication
 	public void configure(AuthenticationManagerBuilder auth) throws Exception
 	{
-		//System.out.println("Authentication.."+auth);
-		auth
-		.inMemoryAuthentication()
-		.withUser("user1")
-		.password("{noop}user1")
-		.roles("USER")
-		.and()
-		.withUser("admin")
-		.password("{noop}admin")
-		.roles("ADMIN");
+		
+		
+		
 				
 	}
 		
