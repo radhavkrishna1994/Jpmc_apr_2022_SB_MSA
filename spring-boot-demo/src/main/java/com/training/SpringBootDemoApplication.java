@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.training.model.Book;
 import com.training.repo.BookRepo;
+import com.training.repo.CustomerRepo;
 
 @SpringBootApplication
 public class SpringBootDemoApplication implements CommandLineRunner{
@@ -29,6 +30,10 @@ public class SpringBootDemoApplication implements CommandLineRunner{
 		
 	}
 
+	
+	@Autowired
+	private CustomerRepo custRepo;
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -44,7 +49,8 @@ public class SpringBootDemoApplication implements CommandLineRunner{
 		 */
 		
 		//System.out.println(bookRepo.updateStock(120l, 50l));
-	
+		
+	System.out.println(custRepo.getCustomer("sam"));
 	}
 	
 }
