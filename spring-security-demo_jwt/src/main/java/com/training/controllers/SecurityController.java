@@ -1,6 +1,7 @@
 package com.training.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,13 +27,22 @@ public class SecurityController {
 	@Autowired
 	private AuthenticationManager authManager;
 	
+	
 	@PostMapping("/authenticate")
 	public String authenticate(@RequestBody UserInput userInput)
 	{
+		try {
 		authManager.authenticate(new 
 				UsernamePasswordAuthenticationToken(userInput.getUsername(), userInput.getPassword()));
 		
 		return jwtUtil.generateToken(userInput.getUsername());
+		}
+		catch(Exception ex)
+		{
+			//System.out.println(ex);
+			return "Bad Credentials : "+HttpStatus.BAD_REQUEST;
+		}
+		
 		
 	}
 	
