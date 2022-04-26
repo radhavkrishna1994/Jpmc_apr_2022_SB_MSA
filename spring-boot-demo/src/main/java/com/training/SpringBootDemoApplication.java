@@ -32,11 +32,19 @@ public class SpringBootDemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		System.out.println(bookRepo.findByTitle("Alchemist"));
+		/*
+		 * System.out.println(bookRepo.findByTitle("Alchemist"));
+		 * 
+		 * System.out.println(bookRepo.findByTitleLike("%like%"));
+		 * System.out.println(bookRepo.findByStockLessThan(150l));
+		 */
 		
-		System.out.println(bookRepo.findByTitleLike("%like%"));
-		System.out.println(bookRepo.findByStockLessThan(150l));
+		/*
+		 * bookRepo.getAllBooksOnStock(120l) .forEach(b->System.out.println(b));
+		 */
 		
+		//System.out.println(bookRepo.updateStock(120l, 50l));
+	
 	}
 	
 }
