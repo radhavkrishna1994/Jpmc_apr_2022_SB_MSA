@@ -22,7 +22,7 @@ public class UserService {
 	@Autowired
 	private NotificationService notificationService;
 	
-//	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void addUser(User user,Notification not) 
 	{
 		//notificationService=null;

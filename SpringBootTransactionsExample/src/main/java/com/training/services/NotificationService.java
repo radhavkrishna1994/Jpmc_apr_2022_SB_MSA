@@ -15,7 +15,7 @@ public class NotificationService {
 	@Autowired
 	private NotificationRepo notificationRepo;
 	
-	@Transactional(propagation = Propagation.MANDATORY)
+	@Transactional(propagation = Propagation.NEVER)
 	public void addNotification(Notification not)
 	{
 		notificationRepo.save(not);
