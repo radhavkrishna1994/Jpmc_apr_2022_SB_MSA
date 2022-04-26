@@ -30,7 +30,7 @@ public class SecurityConfigurationDb extends WebSecurityConfigurerAdapter  {
 
 			@Override
 			public String encode(CharSequence rawPassword) {
-
+				log.info("Inside Password Encode method");
 				return rawPassword.toString();
 			}
 
@@ -56,6 +56,8 @@ public class SecurityConfigurationDb extends WebSecurityConfigurerAdapter  {
 	//authorization
 	public void configure(HttpSecurity http) throws Exception
 	{
+		
+		log.info("Inside Configure Authorization");
 		http
 		.authorizeRequests()
 		.antMatchers("/user/**")
