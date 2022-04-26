@@ -14,4 +14,7 @@ public interface CustomerRepo extends MongoRepository<Customer, Long>{
 	@Query("{name : ?0}")
 	public List<Customer> getCustomer(String name);
 	
+	@Query("{points : {$gt: ?0}}")
+	public List<Customer> getCustomersPoints(int points);
+	
 }

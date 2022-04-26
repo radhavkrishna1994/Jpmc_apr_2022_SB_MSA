@@ -51,6 +51,8 @@ public class SpringBootDemoApplication implements CommandLineRunner{
 		//System.out.println(bookRepo.updateStock(120l, 50l));
 		
 	System.out.println(custRepo.getCustomer("sam"));
+	
+	System.out.println(custRepo.getCustomersPoints(50));
 	}
 	
 }

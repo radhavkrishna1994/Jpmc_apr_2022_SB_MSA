@@ -18,6 +18,7 @@ public class Customer {
 	private Long custId;
 	private String name;
 	private String email;
+	private int points;
 }
 
 
