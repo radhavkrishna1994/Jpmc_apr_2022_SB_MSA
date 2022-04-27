@@ -8,6 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.training.model.Order;
 
+/*
+ * @KafkaListener(id = "bar", topicPartitions =
+    { @TopicPartition(topic = "topic1", partitions = { "0", "1" }),
+      @TopicPartition(topic = "topic2", partitions = "0",
+         partitionOffsets = @PartitionOffset(partition = "1", initialOffset = "100"))
+    })
+ */
+
 @Component
 public class KafkaConsumer {
 
