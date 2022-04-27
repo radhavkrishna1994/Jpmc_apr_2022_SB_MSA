@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.training.model.Order;
+
 //import com.training.model.Order;
 
 import com.training.services.KafkaProducerService;
@@ -26,8 +28,11 @@ public class KafkaController {
 		return kafkaService.publishMessage(message);
 	}
 	
-	/*
-	 * @PostMapping("/order") public String publishMessage(@RequestBody List<Order>
-	 * orders) { return jmsService.publishOrder(orders); }
-	 */
+	
+	  @PostMapping("/order") 
+	  public String publishOrder(@RequestBody List<Order>
+	  orders) { 
+		  return kafkaService.publishOrder(orders); 
+		  }
+	 
 }
