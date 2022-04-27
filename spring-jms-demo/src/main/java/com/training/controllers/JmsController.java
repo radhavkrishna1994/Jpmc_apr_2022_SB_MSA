@@ -1,5 +1,7 @@
 package com.training.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +26,8 @@ public class JmsController {
 	}
 	
 	@PostMapping("/order")
-	public String publishMessage(@RequestBody Order order)
+	public String publishMessage(@RequestBody List<Order> orders)
 	{
-		return jmsService.publishOrder(order);
+		return jmsService.publishOrder(orders);
 	}
 }

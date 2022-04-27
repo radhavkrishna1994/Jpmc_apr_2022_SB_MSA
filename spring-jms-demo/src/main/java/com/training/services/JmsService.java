@@ -1,5 +1,7 @@
 package com.training.services;
 
+import java.util.List;
+
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -22,10 +24,10 @@ public class JmsService {
 		return message +" is published";
 	}
 	
-	public String publishOrder(Order order)
+	public String publishOrder(List<Order> orders)
 	{
-		jmsTemplate.convertAndSend(queue, order);
-		return order + " is published";
+		jmsTemplate.convertAndSend(queue, orders);
+		return orders + " is published";
 	}
 
 }
