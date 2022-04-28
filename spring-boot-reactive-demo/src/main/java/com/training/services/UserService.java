@@ -38,7 +38,7 @@ public class UserService {
 	
 	public void saveUser(User user)
 	{
-		userRepo.save(user).subscribe();
+		userRepo.save(user).subscribe();  //onSubscribe()
 	}
 	
 	public Mono<User> getUserStreamDb(Long id)
