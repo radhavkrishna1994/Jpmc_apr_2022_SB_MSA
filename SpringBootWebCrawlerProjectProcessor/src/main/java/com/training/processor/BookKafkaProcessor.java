@@ -14,6 +14,8 @@ import java.util.function.Function;
 @Configuration
 public class BookKafkaProcessor {
 
+	
+	
   @Bean
   public Function<KStream<String, Movie>, KStream<String, Movie>> movieProcessor() {
 

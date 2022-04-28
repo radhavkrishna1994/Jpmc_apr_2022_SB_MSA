@@ -1,4 +1,4 @@
-package com.training;
+package com.training.services;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,7 +61,7 @@ public class WebClientService {
 	}
 
 	public void crawlMovies() {
-		Mono<Movie[]> bookMonoList=WebClient.create()
+		Mono<Movie[]> bookMonoArray=WebClient.create()
 				.get()
 				.uri("http://localhost:8083/movies")
 				.accept(MediaType.APPLICATION_JSON)
@@ -69,8 +69,10 @@ public class WebClientService {
 				.bodyToMono(Movie[].class);
 
 
+		
+		
 
-		bookMonoList.subscribe(movieArray->Arrays.stream(movieArray).collect(Collectors.toList())
+		bookMonoArray.subscribe(movieArray->Arrays.stream(movieArray).collect(Collectors.toList())
 				.forEach(movie->{
 					kafkaTemplateMovie.send(KAFKA_TOPIC_MOVIE, movie); //moviedomainsnew
 					System.out.println(movie);
@@ -94,7 +96,7 @@ public class WebClientService {
 		domainListMono.subscribe(domainList -> {
 			domainList.getDomains()
 			.forEach(domain -> {
-			//	kafkaTemplate.send(KAFKA_TOPIC, domain);
+				//kafkaTemplate.send(KAFKA_TOPIC, domain);
 				System.out.println("Domain Name : " + domain.getDomain());
 			});
 		});
