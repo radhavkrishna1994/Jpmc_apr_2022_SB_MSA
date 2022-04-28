@@ -12,6 +12,7 @@ import com.training.model.Book;
 import com.training.repo.BookRepo;
 import com.training.repo.CustomerRepo;
 
+
 @EnableDiscoveryClient
 @SpringBootApplication
 public class SpringBootDemoApplication implements CommandLineRunner{
@@ -23,14 +24,14 @@ public class SpringBootDemoApplication implements CommandLineRunner{
 	@Autowired
 	private BookRepo bookRepo;
 	
-	@PostConstruct
-	public void saveBooks()
-	{
-		bookRepo.save(new Book(1234l, "Alchemist", 225.50, 100l));
-		bookRepo.save(new Book(4467l, "Think like a Monk", 325.50, 100l));
-		bookRepo.save(new Book(6789l, "One Minute Manager", 255.50, 100l));
-		
-	}
+	/*
+	 * @PostConstruct public void saveBooks() { bookRepo.save(new Book(1234l,
+	 * "Alchemist", 225.50, 100l)); bookRepo.save(new Book(4467l,
+	 * "Think like a Monk", 325.50, 100l)); bookRepo.save(new Book(6789l,
+	 * "One Minute Manager", 255.50, 100l));
+	 * 
+	 * }
+	 */
 
 	
 	@Autowired
