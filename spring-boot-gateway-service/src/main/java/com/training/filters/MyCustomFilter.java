@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import reactor.core.publisher.Mono;
 
-@Component
+//@Component
 public class MyCustomFilter extends AbstractGatewayFilterFactory<MyCustomFilter.Config>{
 
 	public static class Config
@@ -33,6 +33,7 @@ public class MyCustomFilter extends AbstractGatewayFilterFactory<MyCustomFilter.
 			
 			return chain.filter(exchange).then(Mono.fromRunnable(()->{
 				
+				System.out.println(exchange.getResponse().getStatusCode());
 				System.out.println("First Post Filter");
 			}));
 			
